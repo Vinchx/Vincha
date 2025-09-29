@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Galaxy with Zoom Effect</title>
+    <title>18! My Baddie</title>
     <link rel="shortcut icon" href="./images/favicon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <script type="importmap">
@@ -19,6 +19,28 @@
   </head>
 
   <body>
+    <div id="countdown-overlay">
+      <div class="countdown-content">
+        <h1>✨ Galaxy Love ✨</h1>
+        <p>Website akan terbuka pada jam 12:00 malam</p>
+        <div id="countdown-timer">
+          <div class="time-unit">
+            <span id="hours">00</span>
+            <label>Jam</label>
+          </div>
+          <div class="time-unit">
+            <span id="minutes">00</span>
+            <label>Menit</label>
+          </div>
+          <div class="time-unit">
+            <span id="seconds">00</span>
+            <label>Detik</label>
+          </div>
+        </div>
+        <div class="stars-animation"></div>
+      </div>
+    </div>
+
     <div id="container"></div>
 
     <div id="landscape-warning">
@@ -90,6 +112,69 @@
           document.getElementById("musicButton").style.display = "none";
         }
       });
+    </script>
+
+    <script>
+      // Countdown Logic
+      function initCountdown() {
+        const countdownOverlay = document.getElementById("countdown-overlay");
+        const container = document.getElementById("container");
+        const musicButton = document.getElementById("musicButton");
+
+        // Set target time jam 12 malam (00:00)
+        const now = new Date();
+        const targetTime = new Date(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate() + 1,
+          0,
+          0,
+          0
+        );
+
+        function updateCountdown() {
+          const now = new Date();
+          const timeLeft = targetTime - now;
+
+          if (timeLeft <= 0) {
+            // Waktu sudah tiba, tampilkan website
+            countdownOverlay.style.display = "none";
+            container.style.display = "block";
+            musicButton.style.display = "block";
+            return;
+          }
+
+          // Hitung jam, menit, detik tersisa
+          const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+          const minutes = Math.floor(
+            (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+          // Update display
+          document.getElementById("hours").textContent = hours
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("minutes").textContent = minutes
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("seconds").textContent = seconds
+            .toString()
+            .padStart(2, "0");
+
+          // Hide website content
+          countdownOverlay.style.display = "flex";
+          container.style.display = "none";
+          musicButton.style.display = "none";
+        }
+
+        // Update setiap detik
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+
+      // Start countdown when page loads
+      window.addEventListener("load", initCountdown);
     </script>
 
     <script type="module" src="script.js"></script>
