@@ -52,8 +52,8 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
       let player;
-      const startTime = 30;
-      const endTime = 261;
+      const startTime = 0;
+      const endTime = 240;
       window.onYouTubeIframeAPIReady = function () {
         player = new YT.Player("player", {
           height: "0",
@@ -76,7 +76,7 @@
             },
             onStateChange: (event) => {
               if (event.data === YT.PlayerState.ENDED) {
-                player.seekTo(90);
+                player.seekTo(startTime);
               }
             },
           },
