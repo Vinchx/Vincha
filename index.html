@@ -52,26 +52,27 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
       let player;
-      const startTime = 227;
+      const startTime = 30;
       const endTime = 261;
       window.onYouTubeIframeAPIReady = function () {
         player = new YT.Player("player", {
           height: "0",
           width: "0",
-          videoId: "d4OMqGKBl6E",
+          videoId: "X-EK60rmcQs",
           playerVars: {
             autoplay: 0,
             start: startTime,
             end: endTime,
             controls: 0,
             loop: 1,
-            playlist: "d4OMqGKBl6E",
+            playlist: "X-EK60rmcQs",
           },
           events: {
             onReady: () => {
               const btn = document.getElementById("musicButton");
               btn.disabled = false;
               btn.innerText = "Mainkan Musik 🎵";
+              player.setVolume(60);
             },
             onStateChange: (event) => {
               if (event.data === YT.PlayerState.ENDED) {

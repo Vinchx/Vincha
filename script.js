@@ -23,7 +23,7 @@ document.getElementById("container").appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.autoRotate = true;
-controls.autoRotateSpeed = 0.5;
+controls.autoRotateSpeed = 0.08;
 controls.enabled = false;
 controls.target.set(0, 0, 0);
 controls.enablePan = false;
@@ -90,7 +90,7 @@ const galaxyParameters = {
 };
 
 const defaultHeartImages = Array.from(
-  { length: 2 },
+  { length: 3 },
   (_, i) => `images/img${i + 1}.jpg`
 );
 
