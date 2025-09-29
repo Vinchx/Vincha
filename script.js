@@ -833,7 +833,7 @@ function createTextRings() {
     ringGroup.userData = {
       ringRadius: ringRadius,
       angleOffset: 0.15 * Math.PI * 0.5,
-      speed: 0.002 + 0.00025,
+      speed: 0.001,
       tiltSpeed: 0,
       rollSpeed: 0,
       pitchSpeed: 0,
