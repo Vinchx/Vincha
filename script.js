@@ -28,7 +28,7 @@ controls.enabled = false;
 controls.target.set(0, 0, 0);
 controls.enablePan = false;
 controls.minDistance = 15;
-controls.maxDistance = 300;
+controls.maxDistance = 100;
 controls.zoomSpeed = 0.3;
 controls.rotateSpeed = 0.3;
 controls.update();
@@ -79,7 +79,7 @@ for (let i = 0; i < 15; i++) {
 }
 
 const galaxyParameters = {
-  count: 100000,
+  count: 200000,
   arms: 6,
   radius: 100,
   spin: 0.5,
@@ -90,7 +90,7 @@ const galaxyParameters = {
 };
 
 const defaultHeartImages = Array.from(
-  { length: 3 },
+  { length: 50 },
   (_, i) => `images/img${i + 1}.jpg`
 );
 
